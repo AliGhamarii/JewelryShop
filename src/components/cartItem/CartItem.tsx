@@ -9,7 +9,7 @@ function CartItem() {
           <div>
             <img
               className="w-40 h-60 rounded-2xl object-cover"
-              src="/public/products/fernando-andrade-potCPE_Cw8A-unsplash.jpg"
+              src="/products/fernando-andrade-potCPE_Cw8A-unsplash.jpg"
               alt=""
             />
           </div>
