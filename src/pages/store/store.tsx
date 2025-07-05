@@ -1,30 +1,34 @@
+import { useEffect, useState } from "react";
 import { Container } from "../../components/container/Container";
 import ProductItem from "../../components/productItems/ProductItem";
 import { Link } from "react-router-dom";
+import { getProducts } from "../../services/api";
+import type { productsType } from "../../types/servicesType";
 
 export const Store = () => {
+  const [products, setProduct] = useState<productsType[]>([]);
+
+  useEffect(() => {
+    getProducts().then((res) => {
+      setProduct(res);
+    });
+  }, []);
+
   return (
     <div>
       <Container>
         <div>
-          <h1 className="text-center mt-5 font-black text-6xl">New Product!</h1>
+          <h1 className="text-center mt-5 mb-15 font-black text-6xl text-orange-600">Luxury Editions Now Available!</h1>
         </div>
         <div
           className="grid grid-cols-4 gap-8 items-center justify-center"
           style={{ minHeight: "90vh" }}
         >
-          <Link to={`/Product/${1}`}>
-            <ProductItem />
-          </Link>
-          <Link to={`/Product/${2}`}>
-            <ProductItem />
-          </Link>
-          <Link to={`/Product/${3}`}>
-            <ProductItem />
-          </Link>
-          <Link to={`/Product/${4}`}>
-            <ProductItem />
-          </Link>
+          {products.map((item) => (
+            <Link key={item.id} to={`/Product/${item.id}`}>
+              <ProductItem {...item} />
+            </Link>
+          ))}
         </div>
       </Container>
     </div>

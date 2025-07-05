@@ -5,7 +5,7 @@ export const Navbar = () => {
     <div className="h-14 shadow border-b flex items-center ">
       <Container>
         <div>
-          <ul className="flex justify-between flex-row-reverse container mx-auto">
+          <ul className="flex justify-between flex-row-reverse container mx-auto ">
             <div className="flex flex-row-reverse">
               <li>
                 <Link to="/" className="ml-8">
@@ -14,6 +14,13 @@ export const Navbar = () => {
               </li>
               <li>
                 <Link to="/store">Store</Link>
+              </li>
+            </div>
+            <div>
+              <li className="text-2xl font-black">
+                <Link to="/" className="ml-8">
+                  Ali Store
+                </Link>
               </li>
             </div>
             <div>
