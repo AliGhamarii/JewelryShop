@@ -1,31 +1,54 @@
 import { useEffect, useState } from "react";
-import Buttons from "../../components/button/Buttons";
-import { Container } from "../../components/container/Container";
-import { getproduct } from "../../services/api";
 import { useParams } from "react-router-dom";
+import { Container } from "../../components/container/Container";
+import Buttons from "../../components/button/Buttons";
+import { getproduct } from "../../services/api";
 import type { productsType } from "../../types/servicesType";
+import { useShoppingcartContext } from "../../context/ShopingCartContext";
 
-export const Product = () => {
+export function Product() {
   const params = useParams<{ id: string }>();
   const [state, setState] = useState<productsType>();
+
+  const { handleDecreaseProductQty, handleIncreaseProductQty, cartItems } =
+    useShoppingcartContext();
 
   useEffect(() => {
     getproduct(params.id as string).then((res) => {
       setState(res);
     });
-  });
+  }, [params.id]);
+
+  console.log(cartItems);
+
   return (
     <div>
       <Container>
-        <div className="px-10 h-auto shadow rounded-xl mt-5 gap-x-10 flex">
-          <div className="col-span-2 my-10 cursor-pointer flex flex-col items-center">
-            <img className="w-100 h-100 object-cover" src={state?.image} />
-            <Buttons
-              variant="success"
-              className="mt-8 rounded-2xl py-3 px-20 cursor-pointer whitespace-nowrap"
-            >
-              Add To Cart
-            </Buttons>
+        <div className="px-10 h-auto shadow rounded-xl mt-5  flex">
+          <div className="my-10 cursor-pointer flex flex-col items-center">
+            <div className="w-100">
+              <img className="w-full h-full object-cover" src={state?.image} />
+            </div>
+            <div className="flex flex-col flex-auto">
+              <Buttons
+                onClick={() => {
+                  handleIncreaseProductQty(parseInt(params.id as string));
+                }}
+                variant="success"
+                className="mt-8 rounded-2xl py-3 px-20 cursor-pointer whitespace-nowrap"
+              >
+                Add To Cart
+              </Buttons>
+              <Buttons
+                onClick={() => {
+                  handleDecreaseProductQty(parseInt(params.id as string));
+                }}
+                variant="danger"
+                className="mt-8 rounded-2xl py-3 px-20 cursor-pointer whitespace-nowrap"
+              >
+                Remove From Cart
+              </Buttons>
+            </div>
           </div>
           <div className="col-span-10 flex flex-col items-center justify-center">
             <h1 className="text-5xl my-5 text-orange-600 text-center">
@@ -41,4 +64,4 @@ export const Product = () => {
       </Container>
     </div>
   );
-};
+}

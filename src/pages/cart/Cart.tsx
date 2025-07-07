@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import Buttons from "../../components/button/Buttons";
 import CartItem from "../../components/cartItem/CartItem";
 import { Container } from "../../components/container/Container";
+import { ShoppingCartContext } from "../../context/ShopingCartContext";
 
-function Card() {
+function Cart() {
+  const { handleIncreaseProductQty } = useContext(ShoppingCartContext);
   return (
     <div>
       <Container>
@@ -28,4 +31,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default Cart;

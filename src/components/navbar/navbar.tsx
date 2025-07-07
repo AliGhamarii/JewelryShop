@@ -18,7 +18,7 @@ export const Navbar = () => {
             </div>
             <div>
               <li className="text-2xl font-black">
-                <Link to="/" className="ml-8">
+                <Link to="/store" className="ml-8">
                   Ali Store
                 </Link>
               </li>

@@ -4,10 +4,11 @@ import { Store } from "./pages/store/store";
 import Layout from "./components/layout/Layout";
 import { Product } from "./pages/product/Product";
 import Cart from "./pages/cart/Cart";
+import { ShoppingCartProvider } from "./context/ShopingCartContext";
 
 function App() {
   return (
-    <>
+    <ShoppingCartProvider>
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -16,7 +17,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </Layout>
-    </>
+    </ShoppingCartProvider>
   );
 }
 
