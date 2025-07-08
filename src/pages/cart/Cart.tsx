@@ -5,7 +5,8 @@ import { Container } from "../../components/container/Container";
 import { ShoppingCartContext } from "../../context/ShopingCartContext";
 
 function Cart() {
-  const { handleIncreaseProductQty } = useContext(ShoppingCartContext);
+  const { handleIncreaseProductQty, handleDecreaseProductQty } =
+    useContext(ShoppingCartContext);
   return (
     <div>
       <Container>

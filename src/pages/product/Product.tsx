@@ -10,8 +10,12 @@ export function Product() {
   const params = useParams<{ id: string }>();
   const [state, setState] = useState<productsType>();
 
-  const { handleDecreaseProductQty, handleIncreaseProductQty, cartItems } =
-    useShoppingcartContext();
+  const {
+    getProductQty,
+    handleDecreaseProductQty,
+    handleIncreaseProductQty,
+    cartItems,
+  } = useShoppingcartContext();
 
   useEffect(() => {
     getproduct(params.id as string).then((res) => {
@@ -39,12 +43,15 @@ export function Product() {
               >
                 Add To Cart
               </Buttons>
+              <span className="rounded-2xl py-3 px-20 flex justify-center items-center text-3xl">
+                {getProductQty(parseInt(params.id as string))}
+              </span>
               <Buttons
                 onClick={() => {
                   handleDecreaseProductQty(parseInt(params.id as string));
                 }}
                 variant="danger"
-                className="mt-8 rounded-2xl py-3 px-20 cursor-pointer whitespace-nowrap"
+                className="rounded-2xl py-3 px-20 cursor-pointer whitespace-nowrap"
               >
                 Remove From Cart
               </Buttons>
