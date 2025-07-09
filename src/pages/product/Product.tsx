@@ -23,38 +23,50 @@ export function Product() {
     });
   }, [params.id]);
 
-  console.log(cartItems);
-
   return (
     <div>
       <Container>
-        <div className="px-10 h-auto shadow rounded-xl mt-5  flex">
+        <div className="px-10 h-190 shadow rounded-xl mt-5  flex">
           <div className="my-10 cursor-pointer flex flex-col items-center">
             <div className="w-100">
               <img className="w-full h-full object-cover" src={state?.image} />
             </div>
-            <div className="flex flex-col flex-auto">
-              <Buttons
-                onClick={() => {
-                  handleIncreaseProductQty(parseInt(params.id as string));
-                }}
-                variant="success"
-                className="mt-8 rounded-2xl py-3 px-20 cursor-pointer whitespace-nowrap"
-              >
-                Add To Cart
-              </Buttons>
-              <span className="rounded-2xl py-3 px-20 flex justify-center items-center text-3xl">
-                {getProductQty(parseInt(params.id as string))}
-              </span>
-              <Buttons
-                onClick={() => {
-                  handleDecreaseProductQty(parseInt(params.id as string));
-                }}
-                variant="danger"
-                className="rounded-2xl py-3 px-20 cursor-pointer whitespace-nowrap"
-              >
-                Remove From Cart
-              </Buttons>
+            <div className="flex flex-col">
+              {getProductQty(parseInt(params.id as string)) == 0 ? (
+                <Buttons
+                  onClick={() => {
+                    handleIncreaseProductQty(parseInt(params.id as string));
+                  }}
+                  variant="success"
+                  className="mt-8 rounded-2xl w-70 h-12 cursor-pointer whitespace-nowrap"
+                >
+                  Add To Cart
+                </Buttons>
+              ) : (
+                <div className="flex flex-col flex-auto">
+                  <Buttons
+                    onClick={() => {
+                      handleIncreaseProductQty(parseInt(params.id as string));
+                    }}
+                    variant="success"
+                    className="mt-8 rounded-2xl w-70 h-12 cursor-pointer whitespace-nowrap"
+                  >
+                    +
+                  </Buttons>
+                  <span className="rounded-2xl w-70 h-12 flex justify-center items-center text-3xl">
+                    {getProductQty(parseInt(params.id as string))}
+                  </span>
+                  <Buttons
+                    onClick={() => {
+                      handleDecreaseProductQty(parseInt(params.id as string));
+                    }}
+                    variant="danger"
+                    className="rounded-2xl w-70 h-12 cursor-pointer whitespace-nowrap"
+                  >
+                    -
+                  </Buttons>
+                </div>
+              )}
             </div>
           </div>
           <div className="col-span-10 flex flex-col items-center justify-center">
