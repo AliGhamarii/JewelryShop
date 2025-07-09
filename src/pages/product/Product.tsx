@@ -14,7 +14,6 @@ export function Product() {
     getProductQty,
     handleDecreaseProductQty,
     handleIncreaseProductQty,
-    cartItems,
     handleRemoveProduct,
   } = useShoppingcartContext();
 
@@ -27,8 +26,8 @@ export function Product() {
   return (
     <div>
       <Container>
-        <div className="px-10 h-210 shadow rounded-xl mt-5  flex">
-          <div className="my-10 cursor-pointer flex flex-col items-center">
+        <div className="px-10 h-180 shadow rounded-xl mt-5 flex">
+          <div className="mt-1 cursor-pointer flex flex-col items-center">
             <div className="w-100">
               <img className="w-full h-full object-cover" src={state?.image} />
             </div>
@@ -44,17 +43,17 @@ export function Product() {
                   Add To Cart
                 </Buttons>
               ) : (
-                <div className="flex flex-col flex-auto">
+                <div className="flex justify-between items-center flex-auto gap-x-2 mt-10">
                   <Buttons
                     onClick={() => {
                       handleIncreaseProductQty(parseInt(params.id as string));
                     }}
                     variant="success"
-                    className="mt-8 rounded-2xl w-70 h-12 cursor-pointer whitespace-nowrap text-3xl"
+                    className=" rounded-2xl w-20 h-12 cursor-pointer whitespace-nowrap text-3xl"
                   >
                     +
                   </Buttons>
-                  <span className="rounded-2xl w-70 h-12 flex justify-center items-center text-3xl">
+                  <span className="rounded-2xl w-10 h-12 flex justify-center items-center text-3xl">
                     {getProductQty(parseInt(params.id as string))}
                   </span>
                   <Buttons
@@ -62,7 +61,7 @@ export function Product() {
                       handleDecreaseProductQty(parseInt(params.id as string));
                     }}
                     variant="primary"
-                    className="rounded-2xl w-70 h-12 cursor-pointer whitespace-nowrap text-3xl"
+                    className="rounded-2xl w-20 h-12 cursor-pointer whitespace-nowrap text-3xl"
                   >
                     -
                   </Buttons>
@@ -71,15 +70,15 @@ export function Product() {
                       handleRemoveProduct(parseInt(params.id as string));
                     }}
                     variant="danger"
-                    className="rounded-2xl w-70 h-12 cursor-pointer whitespace-nowrap mt-3 text-xl"
+                    className="rounded-2xl w-20 h-12 cursor-pointer whitespace-nowrap text-xl"
                   >
-                    Remove Product
+                    Delete
                   </Buttons>
                 </div>
               )}
             </div>
           </div>
-          <div className="col-span-10 flex flex-col items-center justify-center">
+          <div className="col-span-10 flex flex-col items-center justify-start mt-20">
             <h1 className="text-5xl my-5 text-orange-600 text-center">
               {state?.title}
               <span className="text-orange-800"> {state?.price}$</span>
