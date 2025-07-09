@@ -26,8 +26,8 @@ export function Product() {
   return (
     <div>
       <Container>
-        <div className="px-10 h-180 shadow rounded-xl mt-5 flex">
-          <div className="mt-1 cursor-pointer flex flex-col items-center">
+        <div className="px-10 h-180 shadow rounded-xl mt-5 flex justify-between items-center">
+          <div className="cursor-pointer flex flex-col items-center">
             <div className="w-100">
               <img className="w-full h-full object-cover" src={state?.image} />
             </div>
@@ -46,24 +46,25 @@ export function Product() {
                 <div className="flex justify-between items-center flex-auto gap-x-2 mt-10">
                   <Buttons
                     onClick={() => {
-                      handleIncreaseProductQty(parseInt(params.id as string));
-                    }}
-                    variant="success"
-                    className=" rounded-2xl w-20 h-12 cursor-pointer whitespace-nowrap text-3xl"
-                  >
-                    +
-                  </Buttons>
-                  <span className="rounded-2xl w-10 h-12 flex justify-center items-center text-3xl">
-                    {getProductQty(parseInt(params.id as string))}
-                  </span>
-                  <Buttons
-                    onClick={() => {
                       handleDecreaseProductQty(parseInt(params.id as string));
                     }}
                     variant="primary"
                     className="rounded-2xl w-20 h-12 cursor-pointer whitespace-nowrap text-3xl"
                   >
                     -
+                  </Buttons>
+
+                  <span className="rounded-2xl w-10 h-12 flex justify-center items-center text-3xl">
+                    {getProductQty(parseInt(params.id as string))}
+                  </span>
+                  <Buttons
+                    onClick={() => {
+                      handleIncreaseProductQty(parseInt(params.id as string));
+                    }}
+                    variant="success"
+                    className=" rounded-2xl w-20 h-12 cursor-pointer whitespace-nowrap text-3xl"
+                  >
+                    +
                   </Buttons>
                   <Buttons
                     onClick={() => {
