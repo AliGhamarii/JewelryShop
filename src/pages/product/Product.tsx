@@ -15,6 +15,7 @@ export function Product() {
     handleDecreaseProductQty,
     handleIncreaseProductQty,
     cartItems,
+    handleRemoveProduct,
   } = useShoppingcartContext();
 
   useEffect(() => {
@@ -38,7 +39,7 @@ export function Product() {
                     handleIncreaseProductQty(parseInt(params.id as string));
                   }}
                   variant="success"
-                  className="mt-8 rounded-2xl w-70 h-12 cursor-pointer whitespace-nowrap"
+                  className="mt-8 rounded-2xl w-70 h-12 cursor-pointer whitespace-nowrap text-xl"
                 >
                   Add To Cart
                 </Buttons>
@@ -49,7 +50,7 @@ export function Product() {
                       handleIncreaseProductQty(parseInt(params.id as string));
                     }}
                     variant="success"
-                    className="mt-8 rounded-2xl w-70 h-12 cursor-pointer whitespace-nowrap"
+                    className="mt-8 rounded-2xl w-70 h-12 cursor-pointer whitespace-nowrap text-3xl"
                   >
                     +
                   </Buttons>
@@ -60,10 +61,19 @@ export function Product() {
                     onClick={() => {
                       handleDecreaseProductQty(parseInt(params.id as string));
                     }}
-                    variant="danger"
-                    className="rounded-2xl w-70 h-12 cursor-pointer whitespace-nowrap"
+                    variant="primary"
+                    className="rounded-2xl w-70 h-12 cursor-pointer whitespace-nowrap text-3xl"
                   >
                     -
+                  </Buttons>
+                  <Buttons
+                    onClick={() => {
+                      handleRemoveProduct(parseInt(params.id as string));
+                    }}
+                    variant="danger"
+                    className="rounded-2xl w-70 h-12 cursor-pointer whitespace-nowrap mt-3 text-xl"
+                  >
+                    Remove Product
                   </Buttons>
                 </div>
               )}

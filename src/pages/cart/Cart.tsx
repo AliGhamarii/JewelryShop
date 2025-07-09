@@ -2,11 +2,11 @@ import { useContext } from "react";
 import Buttons from "../../components/button/Buttons";
 import CartItem from "../../components/cartItem/CartItem";
 import { Container } from "../../components/container/Container";
-import { ShoppingCartContext } from "../../context/ShopingCartContext";
+import { useShoppingcartContext } from "../../context/ShopingCartContext";
 
 function Cart() {
   const { handleIncreaseProductQty, handleDecreaseProductQty } =
-    useContext(ShoppingCartContext);
+    useShoppingcartContext;
   return (
     <div>
       <Container>
