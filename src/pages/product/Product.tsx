@@ -27,7 +27,7 @@ export function Product() {
   return (
     <div>
       <Container>
-        <div className="px-10 h-190 shadow rounded-xl mt-5  flex">
+        <div className="px-10 h-210 shadow rounded-xl mt-5  flex">
           <div className="my-10 cursor-pointer flex flex-col items-center">
             <div className="w-100">
               <img className="w-full h-full object-cover" src={state?.image} />
