@@ -36,11 +36,11 @@ export default function CartItem({ id, qty }: CartItemProps) {
     <Container>
       <article className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-x-10 bg-white rounded-2xl shadow-lg overflow-hidden p-5 m-5">
         <Link to={`/product/${id}`}>
-          <figure className="flex justify-center items-center">
+          <figure className="flex justify-center items-center overflow-hidden max-h-60 w-full md:w-48">
             <img
               src={product.image}
               alt={product.title}
-              className="object-cover w-50"
+              className="object-contain max-h-60 w-auto"
               loading="lazy"
             />
           </figure>
@@ -54,7 +54,7 @@ export default function CartItem({ id, qty }: CartItemProps) {
               {product.description}
             </p>
           </div>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mt-10">
             <div className="flex items-center space-x-2">
               <Buttons
                 onClick={() => handleDecreaseProductQty(id)}
