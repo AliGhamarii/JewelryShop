@@ -1,5 +1,7 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { login } from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 interface ShoppingCartProvider {
   children: React.ReactNode;
@@ -17,6 +19,9 @@ interface ShoppingCartContext {
   getProductQty: (id: number) => number;
   handleRemoveProduct: (id: number) => void;
   cartQty: number;
+  isLogin: boolean;
+  handleLogin: (username: string, password: string) => void;
+  handleLogout: () => void;
 }
 
 export const ShoppingCartContext = createContext({} as ShoppingCartContext);
@@ -26,7 +31,6 @@ export const useShoppingcartContext = () => {
 };
 
 export function ShoppingCartProvider({ children }: ShoppingCartProvider) {
-  
   const [cartItems, setCartItems] = useLocalStorage<cartItem[]>(
     "cartItems",
     []
@@ -80,6 +84,31 @@ export function ShoppingCartProvider({ children }: ShoppingCartProvider) {
     return totalQty + item.qty;
   }, 0);
 
+  const [isLogin, setIsLogin] = useState(false);
+  const navigate = useNavigate();
+
+  function handleLogin(username: string, password: string) {
+    login(username, password).finally(() => {
+      const token =
+        "tibxxS8fl8h0KHV6iO1sMQpQyqwRwtMciarIDHPiajx3KmyPtitvdXYE0MVlEtQe";
+      localStorage.setItem("token", token);
+      setIsLogin(true);
+      navigate("/store");
+    });
+  }
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsLogin(true);
+    }
+  }, []);
+
+  function handleLogout() {
+    setIsLogin(false);
+    localStorage.removeItem("token");
+    navigate("/store");
+  }
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -89,6 +118,9 @@ export function ShoppingCartProvider({ children }: ShoppingCartProvider) {
         getProductQty,
         handleRemoveProduct,
         cartQty,
+        isLogin,
+        handleLogin,
+        handleLogout,
       }}
     >
       {children}
