@@ -1,10 +1,10 @@
-import { Route, Routes } from "react-router-dom";
+import Cart from "./pages/cart/Cart";
+import { Login } from "./pages/login/Login";
 import { Store } from "./pages/store/store";
 import Layout from "./components/layout/Layout";
+import { Route, Routes } from "react-router-dom";
 import { Product } from "./pages/product/Product";
-import Cart from "./pages/cart/Cart";
-import { PrivateRoute } from "./components/privateRouter/privateRoute";
-import { Login } from "./pages/login/Login";
+import { PrivateRoute } from "./components/privateRouter/PrivateRoute";
 
 function App() {
   return (

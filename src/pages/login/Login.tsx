@@ -23,7 +23,7 @@ export const Login = () => {
           action=""
           className=" rounded-2xl w-100 h-120 flex flex-col justify-center items-center shadow-2xl bg-white mt-10 p-5"
         >
-          <h1 className="text-center text-6xl font-bold mb-9 text-orange-400">
+          <h1 className="text-center text-6xl font-bold mb-9 text-gray-400">
             Login
           </h1>
           <div className="flex flex-col gap-8">

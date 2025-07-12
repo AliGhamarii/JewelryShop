@@ -15,7 +15,7 @@ export const Store = () => {
   }, []);
 
   return (
-    <div>
+    <div className="mt-30">
       <Container>
         <div>
           <h1 className="text-center mt-5 mb-15 font-black text-6xl text-orange-600">Luxury Editions Now Available!</h1>
