@@ -2,7 +2,7 @@ import { useEffect, useState, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { Container } from "../../components/container/Container";
 import Buttons from "../../components/button/Buttons";
-import { getproduct } from "../../services/api";
+import { getProduct } from "../../services/api";
 import type { productsType } from "../../types/servicesType";
 import { useShoppingcartContext } from "../../context/ShopingCartContext";
 
@@ -20,7 +20,7 @@ export function Product() {
   } = useShoppingcartContext();
 
   useEffect(() => {
-    getproduct(id as string).then(setProduct);
+    setProduct(getProduct(id as string));
   }, [id]);
 
   const quantity = getProductQty(productId);

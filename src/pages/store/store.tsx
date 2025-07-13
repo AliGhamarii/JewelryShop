@@ -8,26 +8,24 @@ import type { productsType } from "../../types/servicesType";
 export const Store = () => {
   const [products, setProduct] = useState<productsType[]>([]);
 
-  useEffect(() => {
-    getProducts().then((res) => {
-      setProduct(res);
-    });
-  }, []);
+useEffect(() => {
+  setProduct(getProducts());
+}, []);
 
   return (
     <div className="mt-20">
       <Container>
-          <h1 className="text-center mb-20 font-black text-4xl sm:text-5xl md:text-6xl text-blue-900">
-            Luxury Editions Now Available!
-          </h1>
+        <h1 className="text-center mb-20 font-black text-4xl sm:text-5xl md:text-6xl text-blue-900">
+          Luxury Editions Now Available!
+        </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 place-items-center min-h-[90vh]">
-            {products.map((item) => (
-              <Link key={item.id} to={`/Product/${item.id}`}>
-                <ProductItem {...item} />
-              </Link>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 place-items-center min-h-[90vh]">
+          {products.map((item) => (
+            <Link key={item.id} to={`/Product/${item.id}`}>
+              <ProductItem {...item} />
+            </Link>
+          ))}
+        </div>
       </Container>
     </div>
   );

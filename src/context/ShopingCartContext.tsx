@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import { login } from "../services/api";
+// import { login } from "../services/api";
 import { useNavigate } from "react-router-dom";
 
 interface ShoppingCartProvider {
@@ -20,7 +20,7 @@ interface ShoppingCartContext {
   handleRemoveProduct: (id: number) => void;
   cartQty: number;
   isLogin: boolean;
-  handleLogin: (username: string, password: string) => void;
+  // handleLogin: (username: string, password: string) => void;
   handleLogout: () => void;
 }
 
@@ -87,15 +87,15 @@ export function ShoppingCartProvider({ children }: ShoppingCartProvider) {
   const [isLogin, setIsLogin] = useState(false);
   const navigate = useNavigate();
 
-  function handleLogin(username: string, password: string) {
-    login(username, password).finally(() => {
-      const token =
-        "tibxxS8fl8h0KHV6iO1sMQpQyqwRwtMciarIDHPiajx3KmyPtitvdXYE0MVlEtQe";
-      localStorage.setItem("token", token);
-      setIsLogin(true);
-      navigate("/store");
-    });
-  }
+  // function handleLogin(username: string, password: string) {
+  //   login(username, password).finally(() => {
+  //     const token =
+  //       "tibxxS8fl8h0KHV6iO1sMQpQyqwRwtMciarIDHPiajx3KmyPtitvdXYE0MVlEtQe";
+  //     localStorage.setItem("token", token);
+  //     setIsLogin(true);
+  //     navigate("/store");
+  //   });
+  // }
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -119,7 +119,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProvider) {
         handleRemoveProduct,
         cartQty,
         isLogin,
-        handleLogin,
+        // handleLogin,
         handleLogout,
       }}
     >

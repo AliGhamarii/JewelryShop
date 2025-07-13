@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useShoppingcartContext } from "../../context/ShopingCartContext";
 import Buttons from "../button/Buttons";
 import { Container } from "../container/Container";
-import { getproduct } from "../../services/api";
+import { getProduct } from "../../services/api"; // فرض بر اینه که از دیتابیس mock استفاده می‌کنی
 import type { productsType } from "../../types/servicesType";
 import { Link } from "react-router-dom";
 
@@ -20,17 +20,15 @@ export default function CartItem({ id, qty }: CartItemProps) {
 
   const [product, setProduct] = useState<productsType | null>(null);
 
-  useEffect(() => {
-    let isMounted = true;
-    getproduct(id).then((data) => {
-      if (isMounted) setProduct(data);
-    });
-    return () => {
-      isMounted = false;
-    };
-  }, [id]);
+useEffect(() => {
+  console.log("ID is:", id);
+  const data = getProduct(Number(id));
+  console.log("Fetched Product:", data);
+  setProduct(data ?? null);
+}, [id]);
 
-  if (!product) return <Container>Loading...</Container>;
+
+  if (!product) return <Container>محصول پیدا نشد 😕</Container>;
 
   return (
     <Container>
@@ -60,7 +58,7 @@ export default function CartItem({ id, qty }: CartItemProps) {
                 onClick={() => handleDecreaseProductQty(id)}
                 className="w-8 h-8 rounded-full cursor-pointer"
                 variant="primary"
-                aria-label="Decrease quantity"
+                aria-label="کاهش تعداد"
               >
                 –
               </Buttons>
@@ -71,7 +69,7 @@ export default function CartItem({ id, qty }: CartItemProps) {
                 onClick={() => handleIncreaseProductQty(id)}
                 className="w-8 h-8 rounded-full cursor-pointer"
                 variant="success"
-                aria-label="Increase quantity"
+                aria-label="افزایش تعداد"
               >
                 +
               </Buttons>
@@ -84,9 +82,9 @@ export default function CartItem({ id, qty }: CartItemProps) {
                 onClick={() => handleRemoveProduct(id)}
                 className="px-4 py-2 rounded-lg cursor-pointer"
                 variant="danger"
-                aria-label="Remove item"
+                aria-label="حذف محصول"
               >
-                Remove
+                حذف
               </Buttons>
             </div>
           </div>
