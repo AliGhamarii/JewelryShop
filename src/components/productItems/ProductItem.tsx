@@ -15,13 +15,13 @@ function ProductItem({ price, image, title, description }: ProductItem) {
       </div>
 
       <div className="px-6 py-5">
-        <h3 className="text-gray-600 font-extrabold text-xl mb-2 tracking-wide drop-shadow-md line-clamp-1">
+        <h3 className="text-blue-900 font-extrabold text-xl mb-2 tracking-wide drop-shadow-md line-clamp-1">
           {title}
         </h3>
         <span className="text-gray-700 font-semibold text-lg italic shadow-sm">
           {price}$ — Luxury Edition
         </span>
-        <p className="mt-4 text-gray-800 text-sm leading-relaxed font-light whitespace-pre-line drop-shadow-sm line-clamp-2">
+        <p className="mt-4 text-blue-800 text-sm leading-relaxed font-light whitespace-pre-line drop-shadow-sm line-clamp-2">
           {description}
         </p>
       </div>

@@ -15,21 +15,19 @@ export const Store = () => {
   }, []);
 
   return (
-    <div className="mt-30">
+    <div className="mt-20">
       <Container>
-        <div>
-          <h1 className="text-center mt-5 mb-15 font-black text-6xl text-orange-600">Luxury Editions Now Available!</h1>
-        </div>
-        <div
-          className="grid grid-cols-4 gap-x-15 gap-y-5 items-center justify-center"
-          style={{ minHeight: "90vh" }}
-        >
-          {products.map((item) => (
-            <Link key={item.id} to={`/Product/${item.id}`}>
-              <ProductItem {...item} />
-            </Link>
-          ))}
-        </div>
+          <h1 className="text-center mb-20 font-black text-4xl sm:text-5xl md:text-6xl text-blue-900">
+            Luxury Editions Now Available!
+          </h1>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 place-items-center min-h-[90vh]">
+            {products.map((item) => (
+              <Link key={item.id} to={`/Product/${item.id}`}>
+                <ProductItem {...item} />
+              </Link>
+            ))}
+          </div>
       </Container>
     </div>
   );

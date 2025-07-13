@@ -7,7 +7,7 @@ function Cart() {
   const { cartItems } = useShoppingcartContext();
 
   return (
-    <div>
+    <div className="mt-30">
       <Container>
         <div className="relative">
           <div>
