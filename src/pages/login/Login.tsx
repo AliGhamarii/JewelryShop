@@ -4,8 +4,8 @@ import { Container } from "../../components/container/Container";
 import { useShoppingcartContext } from "../../context/ShopingCartContext";
 
 export const Login = () => {
-  const { handleLogin, handleLogout } = useShoppingcartContext();
-  
+  const { handleLogout } = useShoppingcartContext();
+
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -48,9 +48,9 @@ export const Login = () => {
             <div className="flex justify-between gap-2">
               <Buttons
                 type="button"
-                onClick={() => {
-                  handleLogin(user.username, user.password);
-                }}
+                // onClick={() => {
+                //   handleLogin(user.username, user.password);
+                // }}
                 variant="success"
                 className="w-full py-2 rounded-2xl shadow cursor-pointer"
               >
