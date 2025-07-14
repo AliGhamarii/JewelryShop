@@ -31,7 +31,7 @@ export function Product() {
         <Buttons
           onClick={() => handleIncreaseProductQty(productId)}
           variant="success"
-          className="mt-8 rounded-2xl w-70 h-12 text-xl"
+          className="mt-6 rounded-2xl w-full max-w-xs h-10 sm:h-12 text-base sm:text-xl"
         >
           Add To Cart
         </Buttons>
@@ -39,11 +39,11 @@ export function Product() {
     }
 
     return (
-      <div className="flex items-center gap-2 mt-10">
+      <div className="flex items-center gap-2 mt-6 sm:mt-10 flex-wrap sm:flex-nowrap justify-center">
         <Buttons
           onClick={() => handleDecreaseProductQty(productId)}
           variant="primary"
-          className="rounded-2xl w-20 h-12 text-3xl"
+          className="rounded-2xl w-12 sm:w-16 h-10 sm:h-12 text-2xl sm:text-3xl"
         >
           -
         </Buttons>
@@ -53,14 +53,14 @@ export function Product() {
         <Buttons
           onClick={() => handleIncreaseProductQty(productId)}
           variant="success"
-          className="rounded-2xl w-20 h-12 text-3xl"
+          className="rounded-2xl w-12 sm:w-16 h-10 sm:h-12 text-2xl sm:text-3xl"
         >
           +
         </Buttons>
         <Buttons
           onClick={() => handleRemoveProduct(productId)}
           variant="danger"
-          className="rounded-2xl w-20 h-12 text-xl"
+          className="rounded-2xl w-16 sm:w-20 h-10 sm:h-12 text-base sm:text-xl"
         >
           Delete
         </Buttons>
@@ -71,11 +71,11 @@ export function Product() {
   if (!product) return <div className="text-center mt-20">Loading...</div>;
 
   return (
-    <div className="mt-20">
+    <div className="mt-20 px-4 sm:px-0">
       <Container>
-        <div className="px-10 py-8 shadow rounded-xl flex justify-between items-center gap-10">
-          <div className="flex flex-col items-center w-1/2">
-            <div className="w-full">
+        <div className="shadow rounded-xl flex flex-col sm:flex-row justify-between items-center gap-8 sm:gap-10 p-6 sm:p-10">
+          <div className="flex flex-col items-center w-full sm:w-1/2">
+            <div className="w-full h-64 sm:h-96">
               <img
                 src={product.image}
                 alt={product.title}
@@ -85,12 +85,14 @@ export function Product() {
             {renderActionButtons()}
           </div>
 
-          <div className="flex flex-col items-center w-1/2">
-            <h1 className="text-5xl text-blue-900 text-center mb-5">
+          <div className="flex flex-col items-center w-full sm:w-1/2">
+            <h1 className="text-3xl sm:text-5xl text-blue-900 text-center mb-4 sm:mb-5">
               {product.title}
-              <span className="text-gray-800 ml-2">{product.price}$</span>
+              <span className="text-gray-800 ml-2 text-xl sm:text-3xl">
+                {product.price}$
+              </span>
             </h1>
-            <p className="text-center text-blue-800 text-2xl mt-4 px-10">
+            <p className="text-center text-blue-800 text-base sm:text-2xl mt-4 px-4 sm:px-10">
               {product.description}
             </p>
           </div>
