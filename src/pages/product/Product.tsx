@@ -20,7 +20,11 @@ export function Product() {
   } = useShoppingcartContext();
 
   useEffect(() => {
-    setProduct(getProduct(id as string));
+    const fetchData = async () => {
+      const res = await getProduct(id as string);
+      setProduct(res);
+    };
+    fetchData();
   }, [id]);
 
   const quantity = getProductQty(productId);
@@ -39,28 +43,28 @@ export function Product() {
     }
 
     return (
-      <div className="flex items-center gap-2 mt-6 sm:mt-10 flex-wrap sm:flex-nowrap justify-center">
+      <div className="flex items-center gap-2 mt-6 flex-wrap sm:flex-nowrap justify-start">
         <Buttons
           onClick={() => handleDecreaseProductQty(productId)}
           variant="primary"
-          className="rounded-2xl w-12 sm:w-16 h-10 sm:h-12 text-2xl sm:text-3xl"
+          className="rounded-2xl w-12 sm:w-16 h-10 sm:h-12 text-2xl"
         >
           -
         </Buttons>
-        <span className="w-10 h-12 flex justify-center items-center text-3xl">
+        <span className="w-10 h-12 flex justify-center items-center text-2xl font-semibold">
           {quantity}
         </span>
         <Buttons
           onClick={() => handleIncreaseProductQty(productId)}
           variant="success"
-          className="rounded-2xl w-12 sm:w-16 h-10 sm:h-12 text-2xl sm:text-3xl"
+          className="rounded-2xl w-12 sm:w-16 h-10 sm:h-12 text-2xl"
         >
           +
         </Buttons>
         <Buttons
           onClick={() => handleRemoveProduct(productId)}
           variant="danger"
-          className="rounded-2xl w-16 sm:w-20 h-10 sm:h-12 text-base sm:text-xl"
+          className="rounded-2xl w-16 sm:w-20 h-10 sm:h-12 text-sm sm:text-base"
         >
           Delete
         </Buttons>
@@ -73,28 +77,32 @@ export function Product() {
   return (
     <div className="mt-20 px-4 sm:px-0 w-full h-full">
       <Container>
-        <div className="shadow rounded-xl flex flex-col sm:flex-row justify-between items-center gap-8 sm:gap-10 sm:p-10">
-          <div className="flex flex-col items-center w-full sm:w-1/2">
-            <div className="w-full h-64 sm:h-96">
-              <img
-                src={product.image}
-                alt={product.title}
-                className="w-full h-full object-cover rounded-lg"
-              />
-            </div>
-            {renderActionButtons()}
+        <div className="shadow rounded-xl flex flex-col lg:flex-row gap-8 sm:gap-10 p-6 sm:p-10">
+          {/* Image Section */}
+          <div className="w-full lg:w-1/2">
+            <img
+              src={product.image}
+              alt={product.title}
+              className="w-full h-64 sm:h-96 object-cover rounded-lg"
+            />
           </div>
 
-          <div className="flex flex-col items-center w-full sm:w-1/2">
-            <h1 className="text-3xl sm:text-5xl text-blue-900 text-center mb-4 sm:mb-5">
-              {product.title}
-              <span className="text-gray-800 ml-2 text-xl sm:text-3xl">
+          {/* Info Section */}
+          <div className="w-full lg:w-1/2 flex flex-col justify-between">
+            <div>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl text-gray-800 font-semibold mb-4">
+                {product.title}
+              </h1>
+              <span className="text-blue-700 text-xl sm:text-2xl font-bold mb-6 block">
                 {product.price}$
               </span>
-            </h1>
-            <p className="text-center text-blue-800 text-base sm:text-2xl mt-4 px-4 sm:px-10">
-              {product.description}
-            </p>
+              <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
+                {product.description}
+              </p>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="mt-6">{renderActionButtons()}</div>
           </div>
         </div>
       </Container>
