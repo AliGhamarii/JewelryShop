@@ -7,7 +7,7 @@ export const Footer = () => {
 
   return (
     <footer className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-md border-t border-gray-200 dark:border-gray-600 shadow-sm mt-10">
-      <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+      <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between ">
         <span className="text-sm text-gray-900 dark:text-white sm:text-center">
           © 2025{" "}
           <a href="/" className="hover:underline font-semibold">

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useShoppingcartContext } from "../../context/ShopingCartContext";
 import Buttons from "../button/Buttons";
 import { Container } from "../container/Container";
-import { getProduct } from "../../services/api"; // فرض بر اینه که از دیتابیس mock استفاده می‌کنی
+import { getProduct } from "../../services/api"; 
 import type { productsType } from "../../types/servicesType";
 import { Link } from "react-router-dom";
 
@@ -84,7 +84,7 @@ useEffect(() => {
                 variant="danger"
                 aria-label="حذف محصول"
               >
-                حذف
+                Delete
               </Buttons>
             </div>
           </div>

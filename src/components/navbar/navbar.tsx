@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useShoppingcartContext } from "../../context/ShopingCartContext";
+import logo from "../../../public/Icons/jewelry-store-svgrepo-com.svg";
 
 const navItems = [
   { path: "/", label: "Home" },
@@ -17,13 +18,9 @@ export const Navbar = () => {
           to="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <img
-            src="/Icons/jewelry-store-svgrepo-com.svg"
-            className="h-8"
-            alt="Jewelry Logo"
-          />
+          <img src={logo} className="h-8" alt="Jewelry Logo" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            Jewelry Shop
+            Jewlery Shop
           </span>
         </Link>
 
