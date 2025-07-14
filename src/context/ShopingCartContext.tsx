@@ -97,10 +97,10 @@ export function ShoppingCartProvider({ children }: ShoppingCartProvider) {
   //   });
   // }
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setIsLogin(true);
-    }
+    // const token = localStorage.getItem("token");
+    setIsLogin(true);
+    // if (token) {
+    // }
   }, []);
 
   function handleLogout() {
