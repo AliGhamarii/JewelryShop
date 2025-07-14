@@ -7,11 +7,13 @@ interface Layout {
 }
 function Layout({ children }: Layout) {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      {children}
+      <main className="flex-grow flex items-center justify-center">
+        {children}
+      </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

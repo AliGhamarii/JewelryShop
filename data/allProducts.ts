@@ -158,17 +158,6 @@ export const dataProducts = [
   {
     id: "15",
     title:
-      "Minimalist Open Band Ring 1.80 Carat Round Cut Diamond Moissanite Engagement Ring, Unique Style Ring in 925 Sterling Silver With 18k White Gold Plating, Trio Set, Matching Band",
-    price: 569.99,
-    description:
-      "Celebrate everlasting feelings of love with this exquisite Minimalist Open Band Ring 1.80 Carat Round Cut Diamond Moissanite Engagement Ring, Unique Style Ring in 925 Sterling Silver with 18k White Gold Plating, Trio Set, Matching Band.",
-    category: "jewelery",
-    image: "//agemz.com/cdn/shop/products/s40r1b1b2_1800x1800.jpg?v=1650225024",
-    rating: { rate: 2.6, count: 235 },
-  },
-  {
-    id: "16",
-    title:
       "Unique Boho & hippie 2.00 Carat Round Cut Diamond Moissanite Engagement Ring, Wedding Ring in 10k/14k/18k Solid Gold, Leaf Ring, Promise Ring, Anniversary Gift, Bridal Set, Matching Band",
     price: 889.95,
     description:

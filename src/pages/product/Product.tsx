@@ -71,9 +71,9 @@ export function Product() {
   if (!product) return <div className="text-center mt-20">Loading...</div>;
 
   return (
-    <div className="mt-20 px-4 sm:px-0">
+    <div className="mt-20 px-4 sm:px-0 w-full h-full">
       <Container>
-        <div className="shadow rounded-xl flex flex-col sm:flex-row justify-between items-center gap-8 sm:gap-10 p-6 sm:p-10">
+        <div className="shadow rounded-xl flex flex-col sm:flex-row justify-between items-center gap-8 sm:gap-10 sm:p-10">
           <div className="flex flex-col items-center w-full sm:w-1/2">
             <div className="w-full h-64 sm:h-96">
               <img
