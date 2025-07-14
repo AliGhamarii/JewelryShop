@@ -9,7 +9,7 @@ function Layout({ children }: Layout) {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow flex items-center justify-center">
+      <main className="flex-grow flex items-center justify-center mx-5">
         {children}
       </main>
       <Footer />

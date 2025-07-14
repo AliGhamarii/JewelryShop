@@ -70,12 +70,14 @@ export const dataProducts = [
   },
   {
     id: "7",
-    title: "White Gold Plated Princess",
-    price: 209.99,
+    title:
+      "Infinity Loop Minimalist 1.00 Carat Round Cut Diamond Moissanite Engagement Ring, Twisted Wedding Band in10k/14k/18k Solid Gold, Promise Ring, Anniversary Gift, Bridal Set, Matching Band",
+    price: 569.99,
     description:
-      "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
+      "Express your everlasting feelings of love with this exquisite Infinity Loop Minimalist 1.00 Carat Round Cut Diamond Moissanite Engagement Ring, Twisted Wedding Band in10k/14k/18k Solid Gold, Promise Ring, Anniversary Gift, Bridal Set, Matching Band",
     category: "jewelery",
-    image: "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
+    image:
+      "//agemz.com/cdn/shop/products/s59r1b2_de4c6595-13a5-4a56-9782-111339e42b5e_1800x1800.jpg?v=1647719429",
     rating: { rate: 3, count: 400 },
   },
   {

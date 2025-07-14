@@ -13,7 +13,7 @@ useEffect(() => {
 }, []);
 
   return (
-    <div className="mt-20">
+    <div className="mt-15">
       <Container>
         <h1 className="text-center mt-10 mb-25 font-black text-4xl sm:text-5xl md:text-6xl text-blue-900">
           Luxury Editions Now Available!

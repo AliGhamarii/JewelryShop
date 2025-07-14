@@ -4,7 +4,7 @@ type ProductItem = productsType;
 
 function ProductItem({ price, image, title, description }: ProductItem) {
   return (
-    <div className="w-full max-w-full sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-500 mx-auto flex flex-col">
+    <div className=" w-full max-w-full sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-500 mx-auto flex flex-col">
       <div className="relative w-full aspect-[4/3] overflow-hidden">
         <img
           className="object-cover w-full h-full"
