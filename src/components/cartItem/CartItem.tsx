@@ -21,9 +21,7 @@ export default function CartItem({ id, qty }: CartItemProps) {
   const [product, setProduct] = useState<productsType | null>(null);
 
   useEffect(() => {
-    console.log("ID is:", id);
     const data = getProduct(Number(id));
-    console.log("Fetched Product:", data);
     setProduct(data ?? null);
   }, [id]);
 

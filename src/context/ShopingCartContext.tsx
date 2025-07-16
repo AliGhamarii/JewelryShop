@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 // import { login } from "../services/api";
 import { useNavigate } from "react-router-dom";
+import { dataProducts } from "../../data/allProducts";
 
 interface ShoppingCartProvider {
   children: React.ReactNode;
@@ -22,6 +23,7 @@ interface ShoppingCartContext {
   isLogin: boolean;
   // handleLogin: (username: string, password: string) => void;
   handleLogout: () => void;
+  getTotalPrice: () => number;
 }
 
 export const ShoppingCartContext = createContext({} as ShoppingCartContext);
@@ -39,6 +41,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProvider) {
   const handleIncreaseProductQty = (id: number) => {
     setCartItems((currentItems) => {
       const selectedItem = currentItems.find((item) => item.id == id);
+
       if (selectedItem == null) {
         return [...currentItems, { id: id, qty: 1 }];
       } else {
@@ -109,6 +112,13 @@ export function ShoppingCartProvider({ children }: ShoppingCartProvider) {
     navigate("/store");
   }
 
+  function getTotalPrice(): number {
+    return cartItems.reduce((sum: number, item: cartItem): number => {
+      const product = dataProducts.find((p) => Number(p.id) === item.id);
+      return sum + (product?.price || 0) * item.qty;
+    }, 0);
+  }
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -121,6 +131,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProvider) {
         isLogin,
         // handleLogin,
         handleLogout,
+        getTotalPrice,
       }}
     >
       {children}
