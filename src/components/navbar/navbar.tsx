@@ -70,7 +70,7 @@ export const Navbar = () => {
                   >
                     {label}
                     {showCartQty && cartQty !== 0 && (
-                      <span className="absolute top-0.5 -right-7 w-5 h-5 bg-red-600 text-white rounded-full text-xs flex items-center justify-center">
+                      <span className="absolute top-2.5 left-31 md:top-0.5 md:-right-7 w-5 h-5 bg-red-600 text-white rounded-full text-xs flex items-center justify-center">
                         {cartQty}
                       </span>
                     )}
