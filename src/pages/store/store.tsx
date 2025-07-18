@@ -19,7 +19,7 @@ useEffect(() => {
           Luxury Editions Now Available!
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 place-items-center min-h-[90vh]">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 place-items-center min-h-[90vh] mx-5">
           {products.map((item) => (
             <Link key={item.id} to={`/Product/${item.id}`}>
               <ProductItem {...item} />

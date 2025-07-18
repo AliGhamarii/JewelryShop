@@ -16,7 +16,7 @@ function Cart() {
             ))}
           </div>
           {cartItems.length != 0 && (
-            <div className="w-full lg:w-1/3 p-6 bg-gray-100 rounded-2xl flex flex-col items-center justify-center text-base sm:text-xl md:text-2xl">
+            <div className="w-full lg:w-1/3 p-6 bg-gray-100 rounded-2xl flex flex-col items-center justify-center text-base sm:text-xl md:text-2xl mx-5">
               <div>
                 <h2 className="mb-2">
                   Total Price : {getTotalPrice().toFixed(2)}

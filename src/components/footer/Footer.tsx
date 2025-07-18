@@ -9,7 +9,7 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="min-h-auto bg-white/50 dark:bg-gray-700/50 backdrop-blur-md border-t border-gray-200 dark:border-gray-600 shadow-sm mt-10">
+    <footer className="min-h-auto bg-white/50 dark:bg-gray-700/50 backdrop-blur-md border-t border-gray-200 dark:border-gray-600 shadow-sm mt-5">
       <Container>
         <div className="relative mx-5">
           <div className="w-full py-4 md:flex-row flex flex-col justify-between items-center">
