@@ -24,7 +24,7 @@ export const Login = () => {
           <div className="flex items-center justify-center mt-10 text-2xl font-semibold text-gray-900 dark:text-white">
             <img
               className="w-1/2 h-auto object-cover mr-2"
-              src="Icons/jewelry-store-svgrepo-com (1).svg"
+              src="Icons/jewelry-store-svgrepo-com.svg"
               alt="logo"
             />
           </div>
